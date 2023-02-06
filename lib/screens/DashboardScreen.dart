@@ -1,12 +1,14 @@
+import 'package:draw_graph/models/feature.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
-import 'package:stock_app/screens/CalendarScreen.dart';
+//import 'package:stock_app/screens/CalendarScreen.dart';
 import 'package:stock_app/screens/Expenses.dart';
 import 'package:stock_app/screens/MoreScreen.dart';
 import 'package:stock_app/screens/SaleScreen.dart';
 import 'package:stock_app/screens/StockScreen.dart';
+import 'package:draw_graph/draw_graph.dart';
 
 class DashBoard extends StatefulWidget {
   const DashBoard({super.key});
@@ -18,6 +20,44 @@ class DashBoard extends StatefulWidget {
 class _DashBoardState extends State<DashBoard> {
   @override
   Widget build(BuildContext context) {
+        final List<Feature> features = [
+    Feature(
+      title: "Mon",
+      color: Colors.blue,
+      data: [0.2, 0.8, 0.4, 0.7, 0.6],
+    ),
+    Feature(
+      title: "Tue",
+      color: Colors.red,
+      data: [1, 0.8, 0.6, 0.7, 0.3],
+    ),
+    Feature(
+      title: "Wed",
+      color: Colors.cyan,
+      data: [0.5, 0.4, 0.85, 0.4, 7],
+    ),
+    Feature(
+      title: "Thur",
+      color: Colors.green,
+      data: [0.6, 0.2, 0, 0.1, 1],
+    ),
+    Feature(
+      title: "Fri",
+      color: Colors.amber,
+      data: [0.25, 1, 0.3, 0.8, 0.6],
+    ),
+    Feature(
+      title: "Sat",
+      color: Colors.purple,
+      data: [0.25, 1, 0.3, 0.8, 0.6],
+    ),
+    Feature(
+      title: "Sun",
+      color: Colors.deepOrangeAccent,
+      data: [0.25, 1, 0.3, 0.8, 0.6],
+    ),
+  ];
+
     
     var _selectedIndex=0;
     return Scaffold(
@@ -29,12 +69,12 @@ class _DashBoardState extends State<DashBoard> {
         actions: [
           IconButton(
             onPressed: (() {
-              Navigator.push(
-                    context, MaterialPageRoute(
-                      builder:( 
-                      (context) => Calendar()
-                      ) )
-                  );
+              // Navigator.push(
+              //       context, MaterialPageRoute(
+              //         builder:( 
+              //         (context) => Calendar()
+              //         ) )
+              //     );
             }),
             icon: Icon(Icons.calendar_month_sharp))
         ],
@@ -113,10 +153,28 @@ class _DashBoardState extends State<DashBoard> {
               Container(
                 alignment: Alignment.topLeft,
                 child: Text('Total Sales', 
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),))
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),)
+              ),
+
+              LineGraph(
+          features: features,
+          size: Size(800, 500),
+          labelX: ['Mon', 'Tue', 'Wed', 'Thur', 'Fri','Sat', 'Sun'],
+          labelY: ['20%', '40%', '60%', '80%', '100%'],
+          showDescription: true,
+          graphColor: Colors.white30,
+          graphOpacity: 0.2,
+          
+          //verticalFeatureDirection: true,
+          //descriptionHeight: 130,
+        ),
+
+        
 
             ],
+
           ),
+
         ),
       ),
 

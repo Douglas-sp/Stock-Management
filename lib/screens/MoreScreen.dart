@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:stock_app/screens/LoginScreen.dart';
 
 import 'DashboardScreen.dart';
 import 'Expenses.dart';
@@ -28,6 +29,18 @@ class _MoreState extends State<More> {
               
             }),
             icon: Icon(Icons.more_vert_outlined)
+          ),
+
+          IconButton(
+            onPressed: (() {
+              Navigator.push(
+                    context, MaterialPageRoute(
+                      builder:( 
+                      (context) => Login()
+                      ) )
+                  );
+            }),
+            icon: Icon(Icons.logout)
           )
            
         ],
@@ -37,15 +50,73 @@ class _MoreState extends State<More> {
       body: SingleChildScrollView(
         child: Container(
           color: Color.fromARGB(255, 245, 245, 245),
-          height: 1000,
+          height: 900,
           padding: EdgeInsets.all(30),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
       
               Container(
-
-              )
+                height: 70,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text("Order History", style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold, color: Colors.blue)),
+                  Icon(Icons.arrow_forward_ios_sharp, color: Colors.blue),
+                ],
+              ),
+              ),
+              Container(
+                height: 70,
+                child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text("Detailed Reports" , style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold, color: Colors.blue)),
+                  Icon(Icons.arrow_forward_ios_sharp, color: Colors.blue),
+                ],
+                ),
+              ),
+              Container(
+                height: 70,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text("Help Videos" , style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold, color: Colors.blue)),
+                  Icon(Icons.arrow_forward_ios_sharp,color: Colors.blue),
+                ],
+                ),
+              ),
+              Container(
+                height: 70,
+                child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text("Help Us" , style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold, color: Colors.blue)),
+                  Icon(Icons.arrow_forward_ios_sharp,color: Colors.blue),
+                ],
+                ),
+              ),
+              Container(
+                height: 70,
+                child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text("Invite Friends" , style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold, color: Colors.blue)),
+                  Icon(Icons.arrow_forward_ios_sharp,color: Colors.blue),
+                ],
+                ),
+              ),
+              Container(
+                height: 70,
+                child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text("Delete Account" , style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold, color: Colors.blue)
+                  ),
+                  Icon(Icons.arrow_forward_ios_sharp,color: Colors.blue),
+                ],
+                ),
+              ),
 
             ],
           ),
