@@ -18,7 +18,7 @@ class _My_AppState extends State<My_App> {
   Widget build(BuildContext context) {
     return MaterialApp(
 
-      home: Login(),
+      home: DashBoard(),
     );
   }
 }
