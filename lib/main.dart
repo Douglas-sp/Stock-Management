@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:stock_app/screens/DashboardScreen.dart';
 import 'package:stock_app/screens/LoginScreen.dart';
 
+import 'screens/CalendarScreen.dart';
+
 void main() {
   runApp(My_App());
 }
@@ -18,7 +20,7 @@ class _My_AppState extends State<My_App> {
   Widget build(BuildContext context) {
     return MaterialApp(
 
-      home: DashBoard(),
+      home: Calendar(),
     );
   }
 }
