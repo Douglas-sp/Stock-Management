@@ -37,20 +37,25 @@ class Products {
     if (!db.isOpen) {
       return;
     }
-        //inserting the product data
-    try{
-      int product_code = await db.insert(AppConfig.TABLE_NAME,
-     {
-      // 'product_code':this.product_code,
-      'product_name':this.product_name,
-      'stock':this.stock,
-      'cost_price':this.cost_price,
-      'sale_price':this.sale_price,
-      'discount':this.discount,     
-     });
+    //toJson converts the data to json format
+    toJson() {
+      return {
+          // 'product_code':this.product_code,
+        'product_name': this.product_name,
+        'stock': this.stock,
+        'cost_price': this.cost_price,
+        'sale_price': this.sale_price,
+        'discount': this.discount,
+      };
+    }
+    //inserting the product data
+    try {
+      int product_code = await db.insert(AppConfig.TABLE_NAME,toJson());
       print("PRODUCT SAVED SUCCESSFULLY WITH ID ${product_code}");
-     }catch(e){
+    } catch (e) {
       print("FAILED TO SAVE PRODUCT because ${e.toString()}");
-     }
+    }
+
+    
   }
 }

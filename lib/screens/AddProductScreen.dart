@@ -19,6 +19,7 @@ class AddProduct extends StatefulWidget {
 
 class _AddProductState extends State<AddProduct> {
   Products my_product = Products();
+  final _formKey = GlobalKey<FormBuilderState>();
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +33,6 @@ class _AddProductState extends State<AddProduct> {
         actions: [
           // IconButton(
           //   onPressed: (() {
-
           //   }),
           //   icon: Icon(Icons.qr_code_scanner)
           // )
@@ -43,279 +43,289 @@ class _AddProductState extends State<AddProduct> {
           color: Color.fromARGB(255, 245, 245, 245),
           height: 1000,
           padding: EdgeInsets.all(30),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              Container(
-                alignment: Alignment.topLeft,
-                child: Text(
-                  'Product Code',
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16.0),
-                  textAlign: TextAlign.start,
+          child: FormBuilder(
+            key: _formKey,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                // Container(
+                //   alignment: Alignment.topLeft,
+                //   child: Text(
+                //     'Product Code',
+                //     style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16.0),
+                //     textAlign: TextAlign.start,
+                //   ),
+                // ),
+                // SizedBox(
+                //   height: 10,
+                // ),
+                // TextFormField(
+                //   onChanged: (x) {
+                //     my_product.product_code = x.toString() as int;
+                //   },
+                //   decoration: InputDecoration(
+                //     labelText: 'Enter code',
+                //     border: OutlineInputBorder(),
+                //   ),
+                // ),
+
+                SizedBox(
+                  height: 15,
                 ),
-              ),
 
-              SizedBox(
-                height: 10,
-              ),
-
-              TextFormField(
-                onChanged: (x) {
-                  my_product.product_code = x.toString() as int;
-                },
-                decoration: InputDecoration(
-                  labelText: 'Enter code',
-                  border: OutlineInputBorder(),
-                ),
-              ),
-
-              SizedBox(
-                height: 15,
-              ),
-
-              Container(
-                alignment: Alignment.topLeft,
-                child: Text(
-                  'Product Name',
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16.0),
-                  textAlign: TextAlign.start,
-                ),
-              ),
-              SizedBox(
-                height: 15,
-              ),
-              TextFormField(
-                onChanged: (x) {
-                  my_product.product_name = x.toString();
-                  setState(() {});
-                },
-                decoration: InputDecoration(
-                  labelText: 'Enter product name',
-                  border: OutlineInputBorder(),
-                ),
-              ),
-
-              SizedBox(
-                height: 15,
-              ),
-
-              Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      Container(
-                        alignment: Alignment.topLeft,
-                        child: Text(
-                          'Stock',
-                          style: TextStyle(
-                              fontWeight: FontWeight.bold, fontSize: 16.0),
-                          textAlign: TextAlign.start,
-                        ),
-                      ),
-                      SizedBox(
-                        height: 20,
-                      ),
-                      Container(
-                        height: 25,
-                        decoration: BoxDecoration(
-                          color: Colors.blue,
-                          //border: Border.all(
-                          //width: 1.0,
-                          //color: Colors.,
-                          //),
-                        ),
-                        child: Counter(
-                          min: 0,
-                          max: 100,
-                          step: 1,
-                          initial: 0,
-                        ),
-                      ),
-                    ],
+                Container(
+                  alignment: Alignment.topLeft,
+                  child: Text(
+                    'Product Name',
+                    style:
+                        TextStyle(fontWeight: FontWeight.bold, fontSize: 16.0),
+                    textAlign: TextAlign.start,
                   ),
-                  SizedBox(width: 60),
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      Container(
-                        alignment: Alignment.topLeft,
-                        child: Text(
-                          'Unit',
-                          style: TextStyle(
-                              fontWeight: FontWeight.bold, fontSize: 16.0),
-                          textAlign: TextAlign.start,
-                        ),
-                      ),
-                      SizedBox(
-                        height: 20,
-                      ),
-
-                      // FormBuilderDropdown(
-                      //   name: "dropdown_field",
-                      //   decoration: InputDecoration(
-                      //    labelText: "Dropdown" icon: icon(Icons.category)),
-                      //   items: ["kg", "cartons", "bags", "boxes"]
-                      //   .map((option) => DropdownMenuItem(
-                      //   value: option,
-                      //   child: Text("$option"),
-                      //   )).toList(),
-                      // //validators: [FormBuilderValidators.required()],
-                      // )
-                    ],
-                  )
-                ],
-              ),
-
-              SizedBox(
-                height: 15,
-              ),
-
-              Container(
-                alignment: Alignment.topLeft,
-                child: Text(
-                  'Cost Price',
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16.0),
-                  textAlign: TextAlign.start,
                 ),
-              ),
-              SizedBox(
-                height: 10,
-              ),
-              TextFormField(
-                onChanged: (x) {
-                  my_product.cost_price = x.toString() as int;
-                },
-                decoration: InputDecoration(
-                  labelText: 'Enter cost price',
-                  border: OutlineInputBorder(),
+                SizedBox(
+                  height: 15,
                 ),
-              ),
-
-              SizedBox(
-                height: 15,
-              ),
-
-              Container(
-                alignment: Alignment.topLeft,
-                child: Text(
-                  'Sales Price',
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16.0),
-                  textAlign: TextAlign.start,
+                TextFormField(
+                  onChanged: (x) {
+                    my_product.product_name = x.toString();
+                    setState(() {});
+                  },
+                  decoration: InputDecoration(
+                    labelText: 'Enter product name',
+                    border: OutlineInputBorder(),
+                  ),
                 ),
-              ),
-              SizedBox(
-                height: 10,
-              ),
-              TextFormField(
-                onChanged: (x) {
-                  my_product.sale_price = x.toString() as int;
-                },
-                decoration: InputDecoration(
-                  labelText: 'Enter sales price',
-                  border: OutlineInputBorder(),
+
+                SizedBox(
+                  height: 15,
                 ),
-              ),
 
-              SizedBox(
-                height: 15,
-              ),
-
-              Container(
-                alignment: Alignment.topLeft,
-                child: Text(
-                  'Discount',
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16.0),
-                  textAlign: TextAlign.start,
-                ),
-              ),
-              SizedBox(
-                height: 10,
-              ),
-              TextFormField(
-                onChanged: (x) {
-                  my_product.discount = x.toString() as double;
-                },
-                decoration: InputDecoration(
-                  labelText: 'Enter discount price',
-                  border: OutlineInputBorder(),
-                ),
-              ),
-
-              SizedBox(
-                height: 20,
-              ),
-
-              DottedBorder(
-                  color: Colors.blue,
-                  child: Container(
-                    width: double.infinity,
-                    height: 50,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
                       children: [
-                        IconButton(
-                            onPressed: (() {}),
-                            icon: Icon(
-                              Icons.add,
-                              color: Colors.blue,
-                            )),
-                        Text(
-                          'Add image',
-                          style: TextStyle(
-                              color: Colors.blue, fontWeight: FontWeight.bold),
-                        )
+                        Container(
+                          alignment: Alignment.topLeft,
+                          child: Text(
+                            'Stock',
+                            style: TextStyle(
+                                fontWeight: FontWeight.bold, fontSize: 16.0),
+                            textAlign: TextAlign.start,
+                          ),
+                        ),
+                        SizedBox(
+                          height: 20,
+                        ),
+                        Container(
+                          height: 25,
+                          decoration: BoxDecoration(
+                            color: Colors.blue,
+                            //border: Border.all(
+                            //width: 1.0,
+                            //color: Colors.,
+                            //),
+                          ),
+                          child: Counter(
+                            min: 0,
+                            max: 100,
+                            step: 1,
+                            initial: 0,
+                          ),
+                        ),
                       ],
                     ),
-                  )),
+                    SizedBox(width: 60),
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        Container(
+                          alignment: Alignment.topLeft,
+                          child: Text(
+                            'Unit',
+                            style: TextStyle(
+                                fontWeight: FontWeight.bold, fontSize: 16.0),
+                            textAlign: TextAlign.start,
+                          ),
+                        ),
+                        SizedBox(
+                          height: 20,
+                        ),
 
-              SizedBox(
-                height: 20,
-              ),
+                        // FormBuilderDropdown(
+                        //   name: "dropdown_field",
+                        //   decoration: InputDecoration(
+                        //    labelText: "Dropdown" icon: icon(Icons.category)),
+                        //   items: ["kg", "cartons", "bags", "boxes"]
+                        //   .map((option) => DropdownMenuItem(
+                        //   value: option,
+                        //   child: Text("$option"),
+                        //   )).toList(),
+                        // //validators: [FormBuilderValidators.required()],
+                        // )
+                      ],
+                    )
+                  ],
+                ),
 
-              // DottedBorder(
-              //   color: Colors.blue,
-              //   child: Container(
-              //     width: double.infinity,
-              //     height: 50,
-              //     child: Row(
-              //       mainAxisAlignment: MainAxisAlignment.center,
-              //       children: [
-              //         IconButton(
-              //           onPressed: (() {
+                SizedBox(
+                  height: 15,
+                ),
 
-              //           }),
-              //           icon: Icon(Icons.qr_code_scanner, color: Colors.blue,)
-              //         ),
-              //         Text('Generate Barcode',
-              //           style:TextStyle(color: Colors.blue, fontWeight: FontWeight.bold) ,
-              //         )
-              //       ],
-              //     ),
+                Container(
+                  alignment: Alignment.topLeft,
+                  child: Text(
+                    'Cost Price',
+                    style:
+                        TextStyle(fontWeight: FontWeight.bold, fontSize: 16.0),
+                    textAlign: TextAlign.start,
+                  ),
+                ),
+                SizedBox(
+                  height: 10,
+                ),
+                TextFormField(
+                  onChanged: (x) {
+                    my_product.cost_price = x.toString() as int;
+                  },
+                  decoration: InputDecoration(
+                    labelText: 'Enter cost price',
+                    border: OutlineInputBorder(),
+                  ),
+                ),
 
-              //   )
-              // ),
+                SizedBox(
+                  height: 15,
+                ),
 
-              SizedBox(
-                height: 20,
-              ),
+                Container(
+                  alignment: Alignment.topLeft,
+                  child: Text(
+                    'Sales Price',
+                    style:
+                        TextStyle(fontWeight: FontWeight.bold, fontSize: 16.0),
+                    textAlign: TextAlign.start,
+                  ),
+                ),
+                SizedBox(
+                  height: 10,
+                ),
+                TextFormField(
+                  onChanged: (x) {
+                    my_product.sale_price = x.toString() as int;
+                  },
+                  decoration: InputDecoration(
+                    labelText: 'Enter sales price',
+                    border: OutlineInputBorder(),
+                  ),
+                ),
 
-              Container(
-                width: double.infinity,
-                height: 50,
-                child: ElevatedButton(
-                    onPressed: () {
-                      my_product.saveProduct();
-                    },
-                    child: Text('Save')),
-              )
-            ],
+                SizedBox(
+                  height: 15,
+                ),
+
+                Container(
+                  alignment: Alignment.topLeft,
+                  child: Text(
+                    'Discount',
+                    style:
+                        TextStyle(fontWeight: FontWeight.bold, fontSize: 16.0),
+                    textAlign: TextAlign.start,
+                  ),
+                ),
+                SizedBox(
+                  height: 10,
+                ),
+                TextFormField(
+                  onChanged: (x) {
+                    my_product.discount = x.toString() as double;
+                  },
+                  decoration: InputDecoration(
+                    labelText: 'Enter discount price',
+                    border: OutlineInputBorder(),
+                  ),
+                ),
+
+                SizedBox(
+                  height: 20,
+                ),
+
+                DottedBorder(
+                    color: Colors.blue,
+                    child: Container(
+                      width: double.infinity,
+                      height: 50,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          IconButton(
+                              onPressed: (() {}),
+                              icon: Icon(
+                                Icons.add,
+                                color: Colors.blue,
+                              )),
+                          Text(
+                            'Add image',
+                            style: TextStyle(
+                                color: Colors.blue,
+                                fontWeight: FontWeight.bold),
+                          )
+                        ],
+                      ),
+                    )),
+
+                SizedBox(
+                  height: 20,
+                ),
+
+                // DottedBorder(
+                //   color: Colors.blue,
+                //   child: Container(
+                //     width: double.infinity,
+                //     height: 50,
+                //     child: Row(
+                //       mainAxisAlignment: MainAxisAlignment.center,
+                //       children: [
+                //         IconButton(
+                //           onPressed: (() {
+
+                //           }),
+                //           icon: Icon(Icons.qr_code_scanner, color: Colors.blue,)
+                //         ),
+                //         Text('Generate Barcode',
+                //           style:TextStyle(color: Colors.blue, fontWeight: FontWeight.bold) ,
+                //         )
+                //       ],
+                //     ),
+
+                //   )
+                // ),
+
+                SizedBox(
+                  height: 20,
+                ),
+
+                Container(
+                  width: double.infinity,
+                  height: 50,
+                  child: ElevatedButton(
+                      onPressed: () async {
+                        await my_product.saveProduct();
+                        _formKey.currentState!.reset();
+                      },
+                      child: Text('Save')),
+                )
+              ],
+            ),
           ),
         ),
       ),
     );
   }
 
-  
+  // Future<void> save() async {
+  //   await my_product.saveProduct();
+  //   _formKey.currentState!.reset();
+  // }
 }
