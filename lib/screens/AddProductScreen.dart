@@ -306,7 +306,7 @@ class _AddProductState extends State<AddProduct> {
                 height: 50,
                 child: ElevatedButton(
                     onPressed: () {
-                      saveProduct();
+                      my_product.saveProduct();
                     },
                     child: Text('Save')),
               )
@@ -317,7 +317,5 @@ class _AddProductState extends State<AddProduct> {
     );
   }
 
-  void saveProduct() {
-    //Save to db table func here!!!
-  }
+  
 }
