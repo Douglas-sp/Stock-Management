@@ -6,6 +6,7 @@ import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:counter/counter.dart';
+import 'package:stock_app/Models/Products.dart';
 
 
 class AddProduct extends StatefulWidget {
@@ -18,6 +19,9 @@ class AddProduct extends StatefulWidget {
 //List Store_Location = ["Wandegeya","Bwaise","Kawempe","Ndejje","Karakaveni","Ntinda"];
 
 class _AddProductState extends State<AddProduct> {
+
+  Products my_product = Products();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -26,12 +30,12 @@ class _AddProductState extends State<AddProduct> {
         title: Center(
           child: Text('Add Products', style: TextStyle(),)),
         actions: [
-          IconButton(
-            onPressed: (() {
+          // IconButton(
+          //   onPressed: (() {
               
-            }),
-            icon: Icon(Icons.qr_code_scanner)
-          )
+          //   }),
+          //   icon: Icon(Icons.qr_code_scanner)
+          // )
            
         ],
       ),
@@ -61,6 +65,9 @@ class _AddProductState extends State<AddProduct> {
                   decoration: InputDecoration(
                     labelText: 'Enter code',
                     border: OutlineInputBorder(),
+                    onChanged: (x){
+                      my_product.product_code = x.toString() as int;
+                    }
                   ),
                 ),
 
@@ -80,6 +87,9 @@ class _AddProductState extends State<AddProduct> {
                   decoration: InputDecoration(
                     labelText: 'Enter name of product',
                     border: OutlineInputBorder(),
+                    onChanged: (x){
+                      my_product.product_name = x.toString();
+                    }
                   ),
                 ),
 
@@ -88,11 +98,9 @@ class _AddProductState extends State<AddProduct> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
-
                       Column(
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
-
                           Container(
                             alignment: Alignment.topLeft,
                             child: Text('Stock',
@@ -164,13 +172,14 @@ class _AddProductState extends State<AddProduct> {
                     textAlign: TextAlign.start,
                   ),
                 ),
-
                 SizedBox(height: 10,),
-
                 TextFormField(
                   decoration: InputDecoration(
                     labelText: 'Enter cost price',
                     border: OutlineInputBorder(),
+                    onChanged: (x){
+                      my_product.cost_price = x.toString() as int;
+                    }
                   ),
                 ),
 
@@ -183,13 +192,14 @@ class _AddProductState extends State<AddProduct> {
                     textAlign: TextAlign.start,
                   ),
                 ),
-
                 SizedBox(height: 10,),
-
                 TextFormField(
                   decoration: InputDecoration(
                     labelText: 'Enter sales price',
                     border: OutlineInputBorder(),
+                    onChanged: (x){
+                      my_product.sale_price = x.toString() as int;
+                    }
                   ),
                 ),
 
@@ -284,6 +294,7 @@ class _AddProductState extends State<AddProduct> {
 
     );
   }
+
 
   void saveProduct() {
 

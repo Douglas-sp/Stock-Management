@@ -32,6 +32,10 @@ class Products {
       print("Failed to create table because ${e.toString()}");
       }
   }
+
+  saveData(){
+    
+  }
 }
  
  
