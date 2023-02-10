@@ -5,7 +5,7 @@ import 'package:path/path.dart';
 import 'package:stock_app/screens/StockScreen.dart';
 
 class Products {
-  int product_code = 0;
+  // int product_code = 0;
   String product_name = "";
   int stock = 0;
   int cost_price = 0;
@@ -21,7 +21,7 @@ class Products {
     }
     try {
       await db.execute(
-          "CREATE TABLE IF NOT EXISTS ${AppConfig.TABLE_NAME} (id INTEGER PRIMARY KEY autoincrement, product_name TEXT, stock INTEGER, cost_price INTEGER, sale_price INTEGER)");
+          "CREATE TABLE IF NOT EXISTS ${AppConfig.TABLE_NAME} (product_code INTEGER PRIMARY KEY autoincrement, product_name TEXT, stock INTEGER, cost_price INTEGER, sale_price INTEGER)");
       print("Table created successfully🥳🥳}");
     } catch (e) {
       print("Failed to create table because ${e.toString()}");
@@ -30,12 +30,27 @@ class Products {
 
   //save product details to database
   saveProduct() async {
+    //creating table first
     await tableCreate();
+    //ensuring the db is open
     var db = await openDatabase(AppConfig.LOCAL_DB_PATH);
     if (!db.isOpen) {
       return;
     }
-
+        //inserting the product data
+    try{
+      int product_code = await db.insert(AppConfig.TABLE_NAME,
+     {
+      // 'product_code':this.product_code,
+      'product_name':this.product_name,
+      'stock':this.stock,
+      'cost_price':this.cost_price,
+      'sale_price':this.sale_price,
+      'discount':this.discount,     
+     });
+      print("PRODUCT SAVED SUCCESSFULLY WITH ID ${product_code}");
+     }catch(e){
+      print("FAILED TO SAVE PRODUCT because ${e.toString()}");
+     }
   }
-
 }
