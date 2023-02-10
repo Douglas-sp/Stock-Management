@@ -32,7 +32,7 @@ class _SignUpState extends State<SignUp> {
                 BoxDecoration(shape: BoxShape.circle, color: Colors.blue),
             child: Center(
               child: Text(
-                'SPZ',
+                'SIM',
                 style: TextStyle(
                     color: Colors.white,
                     fontWeight: FontWeight.bold,
