@@ -85,7 +85,7 @@ class _AddProductState extends State<AddProduct> {
 
                 TextFormField(
                   decoration: InputDecoration(
-                    labelText: 'Enter name of product',
+                    labelText: '${my_product.product_name}',
                     border: OutlineInputBorder(),
                     onChanged: (x){
                       my_product.product_name = x.toString();
