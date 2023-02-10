@@ -126,17 +126,17 @@ class _LoginState extends State<Login> {
                     height: 50,
                     child: ElevatedButton(
                       onPressed: () {
-                          if (_formKey.currentState?.validate() == true) {
-                           _formKey.currentState?.save();
+                          //if (_formKey.currentState?.validate() == true) {
+                          // _formKey.currentState?.save();
                            Navigator.push(
                           context,
                           MaterialPageRoute(
                             builder: (context) => DashBoard(),
                           ),
                         );
-                          print("Email: $_email, Password: $_password");
+                          //print("Email: $_email, Password: $_password");
                     // Perform login process
-                  }
+                  },
                         //if (_formKey.currentState?.validate() == true) {
                         // Navigator.push(
                         //   context,
@@ -144,7 +144,7 @@ class _LoginState extends State<Login> {
                         //     builder: (context) => DashBoard(),
                         //   ),
                         // );
-                      },
+                     // },
                       //},
                       child: Text(
                         "LOGIN",

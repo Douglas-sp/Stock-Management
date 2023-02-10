@@ -17,6 +17,10 @@ class AddProduct extends StatefulWidget {
 //List Store_Location = ["Wandegeya","Bwaise","Kawempe","Ndejje","Karakaveni","Ntinda"];
 
 class _AddProductState extends State<AddProduct> {
+  List<String> categoryOptions = ['Bags', 'Bottles','Boxes',
+  'Cans','Cases','Cartons','Cups','Jars','Kilograms(Kg)',
+  'Pounds(lbs)','Litres','Meters','Pieces','Tons'
+  'Dozens','Each','Gallons','Grams','Other'];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -99,7 +103,7 @@ class _AddProductState extends State<AddProduct> {
                             textAlign: TextAlign.start,
                             ),
                           ),
-                          SizedBox(height: 20,),
+                          SizedBox(height: 35,),
                           Container(
                             height: 25,
                             decoration: BoxDecoration(
@@ -135,6 +139,28 @@ class _AddProductState extends State<AddProduct> {
                             ),
                           ),
                           SizedBox(height: 20,),
+
+                          Container(
+                            height: 50,
+                            width: 160,
+                            child: FormBuilderDropdown(
+                              name: 'category',
+                              decoration: InputDecoration(
+                              labelText: 'Select Weight',
+                              //hintText: 'Select Category',
+                              border: OutlineInputBorder(
+                              //borderRadius: BorderRadius.all(Radius.circular(12.0)),
+                              ),
+                             ),
+                              items: categoryOptions
+                              .map((category) => DropdownMenuItem(
+                                alignment: AlignmentDirectional.center,
+                                value: category,
+                                child: Text(category),
+                            ))
+                            .toList(),
+                            ),
+                          ),
                           
                           // FormBuilderDropdown(
                           //   name: "dropdown_field",
