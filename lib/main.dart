@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:stock_app/screens/DashboardScreen.dart';
 import 'package:stock_app/screens/LoginScreen.dart';
 
+import 'screens/AddProductScreen.dart';
 import 'screens/CalendarScreen.dart';
 
 void main() {
@@ -20,7 +21,7 @@ class _My_AppState extends State<My_App> {
   Widget build(BuildContext context) {
     return MaterialApp(
 
-      home: Calendar(),
+      home: AddProduct(),
     );
   }
 }

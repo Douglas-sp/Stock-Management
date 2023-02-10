@@ -3,12 +3,16 @@ import 'package:sqflite/sqflite.dart';
 import 'package:stock_app/Database/CreateTable.dart';
 import 'package:stock_app/Models/AppConfig.dart';
 import 'package:path/path.dart';
+import 'package:stock_app/screens/StockScreen.dart';
 
+String yes(){
+  return("object YES");
+ }
 class Products {
   int product_code = 0;
   String product_name = "";
   int stock = 0;
-  int cost_price = 0;
+  int cost_price = 01;
   int sale_price = 0;
   // double discount = 0;
 
@@ -21,7 +25,7 @@ class Products {
     }
     try {
       await db.execute(
-          "CREATE TABLE ${AppConfig.TABLE_NAME} (id INTEGER PRIMARY KEY autoincrement, product_name TEXT, stock INTEGER, cost_price INTEGER, sale_price INTEGER)");
+          "CREATE TABLE IF NOT EXISTS ${AppConfig.TABLE_NAME} (id INTEGER PRIMARY KEY autoincrement, product_name TEXT, stock INTEGER, cost_price INTEGER, sale_price INTEGER)");
           print("Table created sucessfully🥳🥳}");
 
     } catch (e) {
@@ -29,3 +33,5 @@ class Products {
       }
   }
 }
+ 
+ 

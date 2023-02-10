@@ -7,6 +7,7 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:counter/counter.dart';
 
+
 class AddProduct extends StatefulWidget {
   const AddProduct({super.key});
 
@@ -138,8 +139,9 @@ class _AddProductState extends State<AddProduct> {
                           
                           // FormBuilderDropdown(
                           //   name: "dropdown_field",
-                          //   decoration: InputDecoration(labelText: "Dropdown"),
-                          //   items: ["Option 1", "Option 2", "Option 3"]
+                          //   decoration: InputDecoration(
+                          //    labelText: "Dropdown" icon: icon(Icons.category)),
+                          //   items: ["kg", "cartons", "bags", "boxes"]
                           //   .map((option) => DropdownMenuItem(
                           //   value: option,
                           //   child: Text("$option"),
@@ -237,28 +239,28 @@ class _AddProductState extends State<AddProduct> {
 
                 SizedBox(height: 20,),
 
-                DottedBorder(
-                  color: Colors.blue,
-                  child: Container(
-                    width: double.infinity,
-                    height: 50,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        IconButton(
-                          onPressed: (() {
+                // DottedBorder(
+                //   color: Colors.blue,
+                //   child: Container(
+                //     width: double.infinity,
+                //     height: 50,
+                //     child: Row(
+                //       mainAxisAlignment: MainAxisAlignment.center,
+                //       children: [
+                //         IconButton(
+                //           onPressed: (() {
                             
-                          }), 
-                          icon: Icon(Icons.qr_code_scanner, color: Colors.blue,)
-                        ),
-                        Text('Generate Barcode', 
-                          style:TextStyle(color: Colors.blue, fontWeight: FontWeight.bold) ,
-                        )
-                      ],
-                    ),
+                //           }), 
+                //           icon: Icon(Icons.qr_code_scanner, color: Colors.blue,)
+                //         ),
+                //         Text('Generate Barcode', 
+                //           style:TextStyle(color: Colors.blue, fontWeight: FontWeight.bold) ,
+                //         )
+                //       ],
+                //     ),
                     
-                  )
-                ),
+                //   )
+                // ),
 
                 SizedBox(height: 20,),
 
@@ -267,6 +269,7 @@ class _AddProductState extends State<AddProduct> {
                   height:50,
                   child: ElevatedButton(
                     onPressed: (){
+                      saveProduct();
 
                     }, 
                     child: Text('Save')),
@@ -280,5 +283,10 @@ class _AddProductState extends State<AddProduct> {
       ),
 
     );
+  }
+
+  void saveProduct() {
+
+    //Save to db table func here!!!
   }
 }
