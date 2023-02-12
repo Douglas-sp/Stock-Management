@@ -216,7 +216,7 @@ class _AddExpensesState extends State<AddExpenses> {
                         //myExpenses.tableCreate();
                         saveExpenses();
                       },
-                      child: Text('Submit')),
+                      child: Text('SAVE')),
                 )
               ],
             ),

@@ -104,7 +104,7 @@ class _DashBoardState extends State<DashBoard> {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children:[
-                        Text('USh0',style: TextStyle(fontWeight:FontWeight.bold, fontSize: 18),),
+                        Text('UGX 0',style: TextStyle(fontWeight:FontWeight.bold, fontSize: 18),),
                         SizedBox(height: 20,),
                         Text('Total Expenses'),
                       ]
@@ -121,7 +121,7 @@ class _DashBoardState extends State<DashBoard> {
                     )
                   ),
       
-              SizedBox(width: 40 ,),
+              SizedBox(width: 20 ,),
       
                   Container(
                     width: 150,
@@ -129,9 +129,33 @@ class _DashBoardState extends State<DashBoard> {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children:[
-                        Text('USh0', style: TextStyle(fontWeight:FontWeight.bold, fontSize: 18),),
+                        Text('UGX 0', style: TextStyle(fontWeight:FontWeight.bold, fontSize: 18),),
                         SizedBox(height: 20,),
                         Text('Sales')
+                      ]
+                    ),
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(15),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.grey,
+                          blurRadius: 8
+                        )
+                      ]
+                    )
+                  ),
+                  SizedBox(width: 20,),
+
+                  Container(
+                    width: 150,
+                    height: 100,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children:[
+                        Text('UGX 0', style: TextStyle(fontWeight:FontWeight.bold, fontSize: 18),),
+                        SizedBox(height: 20,),
+                        Text('Profits')
                       ]
                     ),
                     decoration: BoxDecoration(
@@ -148,7 +172,7 @@ class _DashBoardState extends State<DashBoard> {
                 ],
               ),
 
-              SizedBox(height: 40,),
+              SizedBox(height: 20,),
 
               Container(
                 alignment: Alignment.topLeft,
